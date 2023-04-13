@@ -1,0 +1,52 @@
+
+.page {
+  margin: 5%;
+  max-width: 70%;
+}
+
+.description {
+  width: 70%;
+  height: 15%;
+  margin-bottom: 50px;
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+
+  letter-spacing: -0.154px;
+
+}
+
+.SLAs {
+  padding: 0;
+  width: min-content;
+}
+
+.title {
+  margin-top: 8px;
+  margin-bottom: 5px;
+}
+
+.addButton {
+  float: right;
+}
+
+.condition {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.condButton {
+  margin-bottom: 10px;
+}
+
+.processButton {
+  width: min-content;
+}
+
+.footer {
+  margin: 5%;
+  max-width: 70%;
+  position: absolute;
+  bottom: 50px;
+}
