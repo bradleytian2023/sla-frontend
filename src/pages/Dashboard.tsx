@@ -19,7 +19,7 @@ function Dashboard() {
   }
 
   // Will become dyanmic (state)
-  const indivPolicies: IItem[] = [
+  const [indivPolicies, setIndivPolicies] = useState<IItem[]>([
     {
       id: '1',
       name: 'VIP',
@@ -30,10 +30,10 @@ function Dashboard() {
       name: 'Another Policy',
       description: 'Simply another SLA policy'
     },
-  ];
+  ]);
 
   // Will become dyanmic (state)
-  const groupPolicies: IItem[] = [
+  const [groupPolicies, setGroupPolicies] = useState<IItem[]>([
     {
       id: '1',
       name: 'VIP Group',
@@ -44,7 +44,7 @@ function Dashboard() {
       name: 'Another Group Policy',
       description: 'Simply another group SLA policy'
     },
-  ];
+  ]);
 
   const navigate = useNavigate();
 
@@ -52,12 +52,6 @@ function Dashboard() {
     name: String,
     description: String,
   }
-
-  //Individual SLA Policies
-  const [indivSLA, setIndivSLA] = useState<SLAPolicy[]>([]);
-
-  //Group SLA Policies
-  const [groupSLA, setGroupSLA] = useState<SLAPolicy[]>([]);
 
   // 1 if adding Group SLA Policies
   const [groupSelect, setGroupSelect] = useState<Number>(0);
