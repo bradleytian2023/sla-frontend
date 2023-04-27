@@ -48,6 +48,20 @@ function Dashboard() {
 
   const navigate = useNavigate();
 
+  interface SLAPolicy {
+    name: String,
+    description: String,
+  }
+
+  //Individual SLA Policies
+  const [indivSLA, setIndivSLA] = useState<SLAPolicy[]>([]);
+
+  //Group SLA Policies
+  const [groupSLA, setGroupSLA] = useState<SLAPolicy[]>([]);
+
+  // 1 if adding Group SLA Policies
+  const [groupSelect, setGroupSelect] = useState<Number>(0);
+
   interface SLATabProps {
     indivPolicies: IItem[];
     groupPolicies: IItem[];
@@ -65,13 +79,13 @@ function Dashboard() {
       <Tabs selectedItem={selected} onChange={setSelected}>
         <Grid>
           <Row>
-            <Col size={10} style={{ padding: 0}}>
+            <Col size={10} style={{ padding: 0 }}>
               <TabList className="SLAs">
                 <Tab item="Indiv-SLA">SLAs</Tab>
                 <Tab item="Group-SLA">Group SLAs</Tab>
               </TabList>
             </Col>
-            <Col size={2} style={{ padding: 0}}>
+            <Col size={2} style={{ padding: 0 }}>
               <Button isPrimary className="addButton" onClick={navigateAdd}>Add Policy</Button>
             </Col>
           </Row>
