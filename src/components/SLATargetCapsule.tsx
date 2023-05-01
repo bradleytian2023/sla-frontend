@@ -8,7 +8,8 @@ import { SM, MD, LG, XL, XXL, XXXL } from '@zendeskgarden/react-typography';
 import { Anchor } from '@zendeskgarden/react-buttons';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
 
-function SLATargetCapsule() {
+
+function SLATargetCapsule(props: any) {
     return (
         <>
             <div>

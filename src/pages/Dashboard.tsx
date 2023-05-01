@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../Main.css';
 import { ThemeProvider, DEFAULT_THEME } from '@zendeskgarden/react-theming'
@@ -6,7 +6,7 @@ import { Col, Grid, Row } from '@zendeskgarden/react-grid'
 import { Anchor, Button } from '@zendeskgarden/react-buttons';
 import { Tab, TabList, TabPanel, Tabs } from '@zendeskgarden/react-tabs'
 import { Breadcrumb } from '@zendeskgarden/react-breadcrumbs'
-import { Blockquote, Ellipsis, LG, MD, SM, XL, XXL, XXXL, Span } from '@zendeskgarden/react-typography'
+import { SM, XL, Span } from '@zendeskgarden/react-typography'
 
 import DragTable from "../components/DragTable";
 
@@ -97,6 +97,20 @@ function Dashboard() {
       </Tabs>
     )
   }
+
+
+  async function fetchPolicies() {
+    await fetch("https://", {
+      method: 'GET',
+    })
+    .then(response => {return response.json()})
+    // Parse, load, and store the policy data
+    .then(data => {return 0})
+  }
+
+  useEffect(() => {
+    fetchPolicies();
+  }, [])
 
   return (
     <>

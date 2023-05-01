@@ -24,8 +24,50 @@ function AddPolicy() {
 
     const [basicInfo, setBasicInfo] = useState<bInfo>();
 
+    interface condition {
+        category: String,
+        operator: String,
+        value: String,
+    }
+
+    interface scope {
+        cond_all: condition[],
+        cond_any: condition[],
+    }
+
+    const [defineScope, setDefineScope] = useState<scope>();
+
+    type targetTime =  {
+        urgency: number,
+        hour: number,
+        minute: number,
+        second: number,
+        // Hour of operation indicator
+        operation: number,
+    }
+
+    type replyMetrics = {
+        first_reply: targetTime[],
+        next_reply: targetTime[],
+        custom_targets: Boolean[],
+    }
+
+    type updateMetrics = {
+
+    }
+
+    type resolutionMetrics = {
+        requester_wait_time: targetTime[],
+        agent_work_time: targetTime[],
+        total_resolution_time: targetTime[],
+        resolution_deadline: targetTime[],
+    }
+
+    const [SLATargets, setSLATargets] = useState<[replyMetrics, updateMetrics, resolutionMetrics] | undefined>();
+    const [ownershipTime, setOwnershipTime] = useState<resolutionMetrics>();
+
     interface AddProcessProps {
-        index: number;
+        index: number,
     }
 
     function back() {
@@ -65,8 +107,8 @@ function AddPolicy() {
                 <Stepper.Step key="step-3">
                     <Stepper.Label>Track metrics by assigning targets</Stepper.Label>
                     <Stepper.Content>
-                        <SLATargetCapsule/>
-                    </Stepper.Content>
+                        <SLATargetCapsule SLATargets={SLATargets} SLAsetter={setSLATargets}/>
+                    </Stepper.Content> 
                 </Stepper.Step>
             </Stepper>
         );
