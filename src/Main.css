@@ -1,12 +1,15 @@
+html {
+  overflow-y: auto;
+}
 
 .page {
   margin: 5%;
-  max-width: 70%;
+  width: 70%;
+  overflow-y: auto;
 }
 
 .description {
   width: 70%;
-  height: 15%;
   margin-bottom: 50px;
 
   font-weight: 400;
@@ -53,8 +56,8 @@
 .footer {
   margin: 5%;
   margin-left: 0%;
-  max-width: 70%;
-  position: absolute;
+  max-width: 100%;
+  position: sticky;
   bottom: 50px;
 }
 
@@ -83,7 +86,6 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -112,7 +114,6 @@
 
 .well {
   width: 45%;
-  height: 90%;
   margin: 1%;
 }
 
@@ -193,5 +194,11 @@
 }
 
 .step-3-well {
-  height: 7vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.step-3-flex {
+  display: flex;
+  flex-direction: column;
 }

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../Main.css';
 import { ThemeProvider, DEFAULT_THEME } from '@zendeskgarden/react-theming'
@@ -16,6 +16,9 @@ function AddPolicy() {
 
     const navigate = useNavigate();
     const [index, setIndex] = useState(0);
+    const [render, setRender] = useState();
+
+    useEffect(() => { }, [render]);
 
     interface bInfo {
         name: String,
@@ -37,7 +40,7 @@ function AddPolicy() {
 
     const [defineScope, setDefineScope] = useState<scope>();
 
-    type targetTime =  {
+    type targetTime = {
         urgency: number,
         hour: number,
         minute: number,
@@ -78,39 +81,44 @@ function AddPolicy() {
     function AddProcess(props: AddProcessProps) {
 
         return (
-            <Stepper activeIndex={props.index}>
-                <Stepper.Step key="step-1">
-                    <Stepper.Label>The basics</Stepper.Label>
-                    <Stepper.Content>
-                        <Field style={{ width: '30%', marginBottom: '10px' }}>
-                            <Label>Policy name* (required)</Label>
-                            <Input />
-                        </Field>
-                        <Field style={{ width: '45%' }}>
-                            <Label>Description</Label>
-                            <Input />
-                        </Field>
-                    </Stepper.Content>
-                </Stepper.Step>
-                <Stepper.Step key="step-2">
-                    <Stepper.Label>Define scope</Stepper.Label>
-                    <Stepper.Content>
-                        <LG style={{ marginBottom: '10px' }}>Conditions</LG>
-                        <MD>Choose which tickets are affected by this policy</MD>
-                        <Anchor href='#'>Learn about conditions and nested conditions</Anchor>
-                        <MD className='condition'>Meet ALL of the following conditions</MD>
-                        <Button className='condButton'>Add condition</Button>
-                        <MD className='condition'>Meet ANY of the following conditions</MD>
-                        <Button className='condButton'>Add condition</Button>
-                    </Stepper.Content>
-                </Stepper.Step>
-                <Stepper.Step key="step-3">
-                    <Stepper.Label>Track metrics by assigning targets</Stepper.Label>
-                    <Stepper.Content>
-                        <SLATargetCapsule SLATargets={SLATargets} SLAsetter={setSLATargets}/>
-                    </Stepper.Content> 
-                </Stepper.Step>
-            </Stepper>
+            <div className="step-3-flex">
+                <Stepper activeIndex={props.index}>
+                    <Stepper.Step key="step-1">
+                        <Stepper.Label>The basics</Stepper.Label>
+                        <Stepper.Content>
+                            <Field style={{ width: '30%', marginBottom: '10px' }}>
+                                <Label>Policy name* (required)</Label>
+                                <Input />
+                            </Field>
+                            <Field style={{ width: '45%' }}>
+                                <Label>Description</Label>
+                                <Input />
+                            </Field>
+                        </Stepper.Content>
+                    </Stepper.Step>
+                    <Stepper.Step key="step-2">
+                        <Stepper.Label>Define scope</Stepper.Label>
+                        <Stepper.Content>
+                            <LG style={{ marginBottom: '10px' }}>Conditions</LG>
+                            <MD>Choose which tickets are affected by this policy</MD>
+                            <Anchor href='#'>Learn about conditions and nested conditions</Anchor>
+                            <MD className='condition'>Meet ALL of the following conditions</MD>
+                            <Button className='condButton'>Add condition</Button>
+                            <MD className='condition'>Meet ANY of the following conditions</MD>
+                            <Button className='condButton'>Add condition</Button>
+                        </Stepper.Content>
+                    </Stepper.Step>
+                    <Stepper.Step key="step-3">
+                        <Stepper.Label>Track metrics by assigning targets</Stepper.Label>
+                    </Stepper.Step>
+                </Stepper>
+                {index === 2 ?
+                    <div style={{ minHeight: 'min-content', display: 'flex' }}>
+                        <SLATargetCapsule SLATargets={SLATargets} SLAsetter={setSLATargets} renderCheck={render} SLArender={setRender} />
+                    </div>
+                    : <></>
+                }
+            </div>
         );
     };
 
@@ -135,7 +143,7 @@ function AddPolicy() {
                         <Col size={1}>
                             {index > 0 ? <Button className={index !== 2 ? 'processButton' : 'finalButton'} isBasic onClick={() => setIndex(index - 1)}>Back</Button> : <></>}
                         </Col>
-                        <Col size={1} style={{ padding: 0}}>
+                        <Col size={1} style={{ padding: 0 }}>
                             {index < 2 ? <Button className={index !== 2 ? 'processButton' : 'finalButton'} isPrimary onClick={() => setIndex(index + 1)}>Next</Button> : <></>}
                         </Col>
                     </Row>

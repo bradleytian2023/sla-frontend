@@ -24,7 +24,7 @@ const HoursDropdown = () => {
               onSelect={setSelectedItem}
               downshiftProps={{ itemToString: (item: IItem) => item && item.label }}
             >
-              <Field style = {{position: 'absolute', width:'25%'}}>
+              <Field style = {{width:'25%'}}>
                 <Label >Hours of operation</Label>
                 <Select>{selectedItem.label}</Select>
               </Field>
