@@ -17,15 +17,15 @@ const HoursDropdown = () => {
   return (
     <>
       <Grid>
-        <Row justifyContent="center">
-          <Col sm={5}>
+        <Row justifyContent="start">
+          <Col>
             <Dropdown
               selectedItem={selectedItem}
               onSelect={setSelectedItem}
               downshiftProps={{ itemToString: (item: IItem) => item && item.label }}
             >
-              <Field style = {{width:'25%'}}>
-                <Label >Hours of operation</Label>
+              <Field>
+                <Label isRegular>Hours of operation</Label>
                 <Select>{selectedItem.label}</Select>
               </Field>
               <Menu>

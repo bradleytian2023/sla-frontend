@@ -7,22 +7,28 @@ import { start } from 'repl';
 const SetTargetTime = () => (
     <>
         <ThemeProvider theme={DEFAULT_THEME} >
-            <Title style={{textAlign: 'left', fontWeight: 400}}>
+            <Title style={{ marginTop: '20px' }}>Set target time</Title >
 
-            Set target time
-            </Title >
-            
-            Urgent tickets
-            <TimeUpdate />
+            <div className='step-1-time'>
+                <Title>Urgent tickets</Title>
+                <TimeUpdate />
+            </div>
 
-            High priority tickets
-            <TimeUpdate />
+            <div className='step-1-time'>
+                <Title>High priority tickets</Title>
+                <TimeUpdate />
+            </div>
 
-            Normal priority tickets
-            <TimeUpdate />
+            <div className='step-1-time'>
+                <Title>Normal priority tickets</Title>
+                <TimeUpdate />
+            </div>
 
-            Low priority tickets
-            <TimeUpdate />
+            <div className='step-1-time'>
+                <Title>Low priority tickets</Title>
+                <TimeUpdate />
+            </div>
+
         </ThemeProvider>
     </>
 );

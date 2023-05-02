@@ -7,29 +7,27 @@ import HoursDropdown from './MenuDropdown';
 
 const TimeUpdate = () => {
     return (
-        <Row justifyContent="start">
+        <Row justifyContent="start" style={{width: '75%'}}>
             <Col>
-                <Field style={{ width: '60%' }}>
-                    <Label>Hours</Label>
+                <Field >
+                    <Label isRegular>Hours</Label>
                     <Input />
                 </Field>
             </Col>
             <Col>
-                <Field style={{ width: '60%', right: '48%' }}>
-                    <Label>Minutes</Label>
+                <Field >
+                    <Label isRegular>Minutes</Label>
                     <Input />
                 </Field>
             </Col>
             <Col>
-                <Field style={{ width: '60%', right: '96%' }}>
-                    <Label>Seconds</Label>
+                <Field >
+                    <Label isRegular>Seconds</Label>
                     <Input />
                 </Field>
             </Col>
             <Col>
-                <div style={{ position: 'absolute', width: '80%', right: '-0.5%' }}>
-                    <HoursDropdown />
-                </div>
+                <HoursDropdown />
             </Col>
         </Row>
     )

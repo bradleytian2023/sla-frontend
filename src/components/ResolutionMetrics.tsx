@@ -10,6 +10,7 @@ import { SM, MD, LG, XL, XXL, XXXL } from '@zendeskgarden/react-typography';
 import { Field, Label, Input } from '@zendeskgarden/react-forms';
 import { Anchor } from '@zendeskgarden/react-buttons'
 import '../Main.css'
+import HoursDropdown from './MenuDropdown';
 
 interface props {
   activate: Function;
@@ -117,6 +118,9 @@ function RequesterWait(props: requesterProps) {
                 </Field>
               </div>
             </span>
+            <span>
+              <HoursDropdown />
+            </span>
           </div>
           <div className='medText'>
             <MD isBold style={{ color: 'black' }}>High priority tickets</MD>
@@ -145,6 +149,9 @@ function RequesterWait(props: requesterProps) {
                   <Input />
                 </Field>
               </div>
+            </span>
+            <span>
+              <HoursDropdown />
             </span>
           </div>
           <div className='medText'>
@@ -175,6 +182,9 @@ function RequesterWait(props: requesterProps) {
                 </Field>
               </div>
             </span>
+            <span>
+              <HoursDropdown />
+            </span>
           </div>
           <div className='medText'>
             <MD isBold style={{ color: 'black' }}>Low priority tickets</MD>
@@ -203,6 +213,9 @@ function RequesterWait(props: requesterProps) {
                   <Input />
                 </Field>
               </div>
+            </span>
+            <span>
+              <HoursDropdown />
             </span>
           </div>
           <div className='endPadding'>

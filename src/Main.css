@@ -11,14 +11,11 @@ html {
 .description {
   width: 70%;
   margin-bottom: 50px;
-
-  font-weight: 400;
   font-size: 14px;
   line-height: 20px;
-
   letter-spacing: -0.154px;
-
 }
+
 
 .SLAs {
   padding: 0;
@@ -201,4 +198,8 @@ html {
 .step-3-flex {
   display: flex;
   flex-direction: column;
+}
+
+.step-1-time {
+  margin-top: 20px;
 }
