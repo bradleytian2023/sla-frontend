@@ -10,6 +10,7 @@
     "@types/node": "^16.18.23",
     "@types/react": "^18.0.33",
     "@types/react-dom": "^18.0.11",
+    "@zendeskgarden/css-bedrock": "^9.0.0",
     "@zendeskgarden/react-accordions": "^8.63.2",
     "@zendeskgarden/react-breadcrumbs": "^8.63.2",
     "@zendeskgarden/react-buttons": "^8.63.2",
@@ -19,9 +20,11 @@
     "@zendeskgarden/react-notifications": "^8.64.0",
     "@zendeskgarden/react-tables": "^8.63.2",
     "@zendeskgarden/react-tabs": "^8.63.2",
+    "@zendeskgarden/react-tags": "^8.65.0",
     "@zendeskgarden/react-theming": "^8.63.2",
     "@zendeskgarden/react-typography": "^8.63.2",
     "@zendeskgarden/svg-icons": "^6.33.0",
+    "lodash.debounce": "^4.0.8",
     "react": "^18.2.0",
     "react-beautiful-dnd": "^13.1.1",
     "react-dom": "^18.2.0",
@@ -55,6 +58,7 @@
     ]
   },
   "devDependencies": {
+    "@types/lodash.debounce": "^4.0.7",
     "@types/react-beautiful-dnd": "^13.1.4",
     "@types/styled-components": "^5.1.26",
     "react-router-dom": "^6.10.0"

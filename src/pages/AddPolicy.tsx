@@ -10,6 +10,7 @@ import { Stepper } from '@zendeskgarden/react-accordions';
 import { Input, Field, Label } from '@zendeskgarden/react-forms'
 import { Col, Grid, Row } from '@zendeskgarden/react-grid'
 import SLATargetCapsule from '../components/SLATargetCapsule';
+import TimedAction from "../components/TimedActions";
 
 
 function AddPolicy() {
@@ -110,14 +111,22 @@ function AddPolicy() {
                     </Stepper.Step>
                     <Stepper.Step key="step-3">
                         <Stepper.Label>Track metrics by assigning targets</Stepper.Label>
+                        <Stepper.Content>
+                            {index === 2 ?
+                                <div style={{ minHeight: 'min-content', display: 'flex' }}>
+                                    <SLATargetCapsule SLATargets={SLATargets} SLAsetter={setSLATargets} renderCheck={render} SLArender={setRender} />
+                                </div>
+                                : <></>
+                            }
+                        </Stepper.Content>
+                    </Stepper.Step>
+                    <Stepper.Step key="step-4">
+                        <Stepper.Label>Set timed actions (optional)</Stepper.Label>
+                        <Stepper.Content>
+                            <TimedAction />
+                        </Stepper.Content>
                     </Stepper.Step>
                 </Stepper>
-                {index === 2 ?
-                    <div style={{ minHeight: 'min-content', display: 'flex' }}>
-                        <SLATargetCapsule SLATargets={SLATargets} SLAsetter={setSLATargets} renderCheck={render} SLArender={setRender} />
-                    </div>
-                    : <></>
-                }
             </div>
         );
     };
@@ -135,16 +144,16 @@ function AddPolicy() {
                     <SM>A Service Level Agreement (SLA) is a contract between you and your customers that specifies performance measures for support by ticket priority. For example, we respond to urgent tickets in ten minutes and resolve them within two hours. A Group SLA is an agreement you have with internal teams. Your policies are applied to tickets in the order they appear on this page, so drag to reorder as needed. <Anchor isExternal href="https://garden.zendesk.com/">Learn about SLAs and Group SLAs</Anchor></SM>
                 </div>
                 <AddProcess index={index}></AddProcess>
-                <Grid className={index !== 2 ? "footer" : "final-footer"}>
+                <Grid className={index !== 3 ? "footer" : "final-footer"}>
                     <Row>
                         <Col size={10} style={{ padding: 0 }}>
-                            <Button className={index !== 2 ? 'processButton' : 'finalButton'} isBasic onClick={back}>Cancel</Button>
+                            <Button className={index !== 3 ? 'processButton' : 'finalButton'} isBasic onClick={back}>Cancel</Button>
                         </Col>
                         <Col size={1}>
-                            {index > 0 ? <Button className={index !== 2 ? 'processButton' : 'finalButton'} isBasic onClick={() => setIndex(index - 1)}>Back</Button> : <></>}
+                            {index > 0 ? <Button className={index !== 3 ? 'processButton' : 'finalButton'} isBasic onClick={() => setIndex(index - 1)}>Back</Button> : <></>}
                         </Col>
                         <Col size={1} style={{ padding: 0 }}>
-                            {index < 2 ? <Button className={index !== 2 ? 'processButton' : 'finalButton'} isPrimary onClick={() => setIndex(index + 1)}>Next</Button> : <></>}
+                            {index < 3 ? <Button className={index !== 3 ? 'processButton' : 'finalButton'} isPrimary onClick={() => setIndex(index + 1)}>Next</Button> : <></>}
                         </Col>
                     </Row>
                 </Grid>
